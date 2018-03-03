@@ -44,7 +44,7 @@ public class UserDao implements Serializable {
     public boolean insert(UserDTO dTO) {
         boolean result = false;
         try {
-            String sql = "INSERT INTO registration VALUES(?,?,?,?)";
+            String sql = "INSERT INTO [user] VALUES(?,?,?,?)";
             //TODO: get connection from DBUtils
             connection = DBUtils.getConnection();
             statement = connection.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class UserDao implements Serializable {
     public List<UserDTO> getAllAccounts() {
         List<UserDTO> result = null;
         try {
-            String sql = "SELECT username, fullname, [role] FROM user";
+            String sql = "SELECT username, fullname, [role] FROM [user]";
             connection = DBUtils.getConnection();
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
